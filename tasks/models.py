@@ -11,8 +11,8 @@ class Task(models.Model):
 
     class Status(DjangoChoices):
         todo = ChoiceItem(0, 'План')
-        in_progress = ChoiceItem(0, 'В процессе')
-        done = ChoiceItem(0, 'Готово')
+        in_progress = ChoiceItem(1, 'В процессе')
+        done = ChoiceItem(2, 'Готово')
 
     name = models.CharField(max_length=200, verbose_name='Название')
     description = models.TextField(verbose_name='Описание')
