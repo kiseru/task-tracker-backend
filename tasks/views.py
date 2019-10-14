@@ -11,6 +11,7 @@ class TaskViewSet(viewsets.ReadOnlyModelViewSet,
     queryset = Task.objects.select_related('user')
     serializer_class = TaskSerializer
     permission_classes = (IsAuthenticated,)
+    filterset_fields = ('status', 'priority')
 
     def get_queryset(self):
         return self.queryset.filter(user_id=self.request.user.id)
