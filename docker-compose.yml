@@ -8,6 +8,8 @@ services:
       - static:/usr/src/app/static
     environment:
       DEBUG: 'false'
+    depends_on:
+      - postgres
   nginx:
     image: nginx:alpine
     volumes:
@@ -17,6 +19,16 @@ services:
       - 80:80
     links:
       - django
+  postgres:
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+
 
 volumes:
   static:
+  pgdata:

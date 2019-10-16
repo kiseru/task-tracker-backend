@@ -1,4 +1,4 @@
-FROM python:alpine
+FROM python
 
 ENV APP_DIR=/usr/src/app
 
